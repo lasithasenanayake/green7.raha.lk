@@ -16,7 +16,15 @@
     "dataType":"float"
 },
 {
-    "fieldName":"totalPaidAmout",
+    "fieldName":"totalPaidAmount",
+    "dataType":"float"
+},
+{
+    "fieldName":"totalGRNAmount",
+    "dataType":"float"
+},
+{
+    "fieldName":"totalPaymentAmount",
     "dataType":"float"
 }
 

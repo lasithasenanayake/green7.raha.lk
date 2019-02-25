@@ -34,7 +34,7 @@
         },
         {
             "fieldName":"qty",
-            "dataType":"int"
+            "dataType":"float"
         },
         {
             "fieldName":"price",

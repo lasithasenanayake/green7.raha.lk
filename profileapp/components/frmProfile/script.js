@@ -1,6 +1,6 @@
 WEBDOCK.component().register(function(exports){
     var bindData = {
-        i_profile:{catogory:"Student",id:0,country:"Sri Lanka",city:""},
+        i_profile:{catogory:"Customer",id:0,country:"Sri Lanka",city:""},
         submitErrors: undefined,
         SearchItem:"",
         items:[],

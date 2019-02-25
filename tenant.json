@@ -3,6 +3,9 @@
         "i18n":{
             "version":"latest"
         },
+        "raha":{
+            "version":"latest"
+        },
         "dock":{
             "version":"latest"
         },
@@ -35,7 +38,7 @@
         "events":{
             "onStartup":{
                 "admin" : "dock",
-                "default" : "davvag-cms-davvag"
+                "default" : "raha"
             }
         }
     }

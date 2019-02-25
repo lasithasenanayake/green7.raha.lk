@@ -9,12 +9,16 @@
         },
         {
             "fieldName":"transactionid",
-            "dataType":"int"
+            "dataType":"int",
+            "annotations":{
+                "isPrimary": true
+            }
         },
         {
             "fieldName":"tranType",
             "dataType":"java.lang.String",
             "annotations":{
+                "isPrimary": true,
                 "maxLen": 20
             }
         },
