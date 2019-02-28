@@ -7,6 +7,8 @@ class SearchServices {
     public function postqcrossdomain($req){
         $body=$req->Body(true);
         //$f=new ();
+        if(!isset($body->domain))
+            $body->domain=MAIN_STORE_DOMAIN;
         $sall=$body->query;
         $data=Auth::CrossDomainAPICall($body->domain,"/components/dock/soss-data/service/q","POST",$body->query);
         return $data->result;

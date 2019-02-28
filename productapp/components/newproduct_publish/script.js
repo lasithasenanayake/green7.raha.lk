@@ -173,7 +173,7 @@ WEBDOCK.component().register(function(exports){
                 query.push({storename:"products_image",search:"articalid:"+routeData.productid});
             }
             
-            var CrossDomainQuery ={domain:bindData.tname,query:[{storename:"productcat",search:""}]};
+            var CrossDomainQuery ={query:[{storename:"productcat",search:""}]};
             menuhandler.services.qcrossdomain(CrossDomainQuery)
                         .then(function(r){
                             console.log(JSON.stringify(r));
