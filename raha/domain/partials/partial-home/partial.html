@@ -38,19 +38,19 @@
     <div class="col-sm-4 col-lg-4 col-md-4" v-for="item in items">
         <div class="thumbnail" style="border-radius:2px;">
             <div class="form-group" style="text-align:center;">
-                <img v-if="item.inventory ? item.inventory.qty == 0 : true" src="assets/raha/img/outofstock.png" alt="" style="position: absolute;left: 50%;top: 45px;width: 200px;margin-left:-100px;"/>
-                <img v-if="item.inventory ? item.inventory.qty == 0 : true" class="homeImage" v-bind:src="'components/raha/soss-uploader/service/get/products/' +item.itemid+'-'+item.imgurl" style="opacity: 0.5; filter: alpha(opacity=50);"  alt=""/>
-                <img v-if="item.inventory ? item.inventory.qty != 0 : false" class="homeImage" v-bind:src="'components/raha/soss-uploader/service/get/products/' +item.itemid+'-'+item.imgurl" alt=""/>
+                <img v-if="item.qty ? item.qty == 0 : true" src="assets/raha/img/outofstock.png" alt="" style="position: absolute;left: 50%;top: 45px;width: 200px;margin-left:-100px;"/>
+                <img v-if="item.qty ? item.qty == 0 : true" class="homeImage" v-bind:src="'http://'+item.tenant+'/components/raha/soss-uploader/service/get/products/' +item.tid+'-'+item.imgurl" style="opacity: 0.5; filter: alpha(opacity=50);"  alt=""/>
+                <img v-if="item.qty ? item.qty != 0 : false" class="homeImage" v-bind:src="'http://'+item.tenant+'/components/raha/soss-uploader/service/get/products/' +item.tid+'-'+item.imgurl" alt=""/>
             </div>
             <div class="caption form-group">
                 <!-- <h4 class="pull-right">{{ item.uom }}.{{ item.price }}</h4>  -->
                 <h4 v-html="item.name"></h4><br/>
                 <h5 class="pull-right">Rs.{{ item.price }}</h5><br/> 
-                
+                <p v-if="item.timeFrom"><b>Delivery Time From:</b>{{ item.timeFrom }} <b> To:</b>{{ item.timeTo }}</p><br/>
                 <!--<p>{{ item.caption }}</p>-->
                 <!--Label v-if="item.inventory ? item.inventory.qty != 0 : false">QTY in Stock : <label>{{ item.inventory.qty }}</label></Label-->
-                <a v-if="item.inventory ? item.inventory.qty != 0 : false" v-on:click="additem(item,false)" role="button" style="margin-left:-1px;width:130px;margin-top:10px;" class="btn btn-primary addCartButton">Grab It</a>
-                <a v-if="item.inventory ? item.inventory.qty == 0 : true" v-on:click="additem(item,true)" role="button" style="margin-left:-1px;width:130px;margin-top:10px;" class="btn btn-primary addCartButton">Grab It</a>
+                <a v-if="item.qty ? item.qty != 0 : false" v-on:click="additem(item,false)" role="button" style="margin-left:-1px;width:130px;margin-top:10px;" class="pull-right btn btn-primary addCartButton">Order</a>
+                <a v-if="item.qty ? item.qty == 0 : true" v-on:click="additem(item,true)" role="button" style="margin-left:-1px;width:130px;margin-top:10px;" class="pull-right btn btn-primary addCartButton">Pre-Order</a>
             </div>
             <div class="form-group">
     

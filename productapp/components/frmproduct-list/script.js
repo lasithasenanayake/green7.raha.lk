@@ -17,7 +17,12 @@ WEBDOCK.component().register(function(exports){
             navigate: function(id){
                 handler = exports.getShellComponent("soss-routes");
                 handler.appNavigate(id ? "/product?productid=" + id : "/product");
+            },
+            navigatePublish: function(id){
+                handler = exports.getShellComponent("soss-routes");
+                handler.appNavigate(id ? "/publish?productid=" + id : "/product");
             }
+
         }
     }
     

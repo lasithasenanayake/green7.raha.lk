@@ -1,10 +1,42 @@
 <?php
-
+require_once(PLUGIN_PATH . "/auth/auth.php");
 class ProductService {
+    public function postProductToStore($req){
+        //var_dump($req);
+        $Transaction=$req->Body(true);
+        $tname=$req->headers()->rhost;
+        $sosskey=$req->headers()->sosskey;
+        
+        $user= Auth::AutendicateDomain($tname,$sosskey,"store_products","ProductToStore");
+        if(isset($user->userid)){
+            require_once (PLUGIN_PATH . "/sossdata/SOSSData.php");
+            $Transaction->tenant=$tname;
+            $Transaction->publishedByID=$user->userid;
+            $Transaction->publishedBy=$user->email;
+            $result = SOSSData::Query ("store_products", urlencode("tid:".$Transaction->tid.""));
+            if(count($result->result)!=0){
+                $Transaction->itemid=$result->result[0]->itemid;
+                $result=SOSSData::Update ("store_products", $Transaction,$tenantId = null);
+                if($result->success){
+                    return $Transaction;
+                }else{
+                    return null;
+                }
+            }else{
+                $result = SOSSData::Insert ("store_products", $Transaction,$tenantId = null);
+                if($result->success){
+                    $Transaction->itemid=$result->result->generatedId;
+                    return $Transaction;
+                }else{
+                    return null;
+                }
+            }
+        }else{
+            return null;
+        }
+    }
 
     public function getAllProducts($req){
-        
-        
         if (isset($_GET["lat"]) && isset($_GET["lng"])){
             require_once (PLUGIN_PATH . "/sossdata/SOSSData.php");
             $mainObj = new stdClass();

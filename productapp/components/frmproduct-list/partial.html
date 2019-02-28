@@ -21,6 +21,7 @@
                 <div class="text-muted"><i class="fa fa-user-circle"></i> {{ profile.caption }}</div>
                 <div class="btn-group pull-right" role="group" aria-label="..." style="margin: 10px;">
                   <!-- <a class="btn btn-primary" :href="'./viewproduct?productid=' + profile.itemid"><span class="glyphicon glyphicon-pencil"></span> Edit</a> -->
+                  <a class="btn btn-primary" v-on:click="navigatePublish(profile.itemid)"><span class="glyphicon glyphicon-pencil"></span> Publish</a>                  
                   <a class="btn btn-primary" v-on:click="navigate(profile.itemid)"><span class="glyphicon glyphicon-pencil"></span> Edit</a>
                   <a class="btn btn-primary" v-on:click="deleteProduct(profile)" style="cursor:pointer;"> <span class="glyphicon glyphicon-remove"></span> Delete</a>
               </div>

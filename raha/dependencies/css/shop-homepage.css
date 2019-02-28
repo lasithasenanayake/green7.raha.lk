@@ -449,8 +449,12 @@ input.deliveryAddress{
 
 }
 
+div.checkout-top-margin-row {
+    margin-bottom: 50px;
+}
+
 body {
-    color: white;
+    color: black;
 }
 
 input {

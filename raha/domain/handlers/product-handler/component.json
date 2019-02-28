@@ -19,6 +19,8 @@
             "allProducts" : {
                 "method" : "GET",
                 "parameters": ["lat","lng","catid"]
+            },"ProductToStore" : {
+                "method" : "POST"
             }
         }
     },
@@ -33,7 +35,7 @@
             "method": "GET",
             "route": "/all",
             "destMethod": "GET",
-            "destUrl" : "http://localhost:9000/data/products"
+            "destUrl" : "http://localhost:9000/data/store_products"
         },
         "insertProduct": {
             "method": "POST",

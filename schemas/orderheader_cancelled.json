@@ -59,6 +59,29 @@
             }
         },
         {
+            "fieldName":"lon",
+            "dataType":"float"
+        },
+        {
+            "fieldName":"lat",
+            "dataType":"float"
+        },
+        {
+            "fieldName":"contactno",
+            "dataType":"java.lang.String",
+            "annotations":{
+                "maxLen": 30
+            }
+        },
+        {
+            "fieldName":"remarks",
+            "dataType":"java.lang.String",
+            "annotations":{
+                "maxLen": 300
+            }
+        },
+
+        {
             "fieldName":"invoiceDate",
             "dataType":"java.util.Date"
         },

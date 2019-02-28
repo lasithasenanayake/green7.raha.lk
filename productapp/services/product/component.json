@@ -22,6 +22,9 @@
             },
             "Save" : {
                 "method" : "POST"
+            },
+            "ProductToStore" : {
+                "method" : "POST"
             }
         }
     },

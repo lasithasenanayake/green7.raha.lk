@@ -155,6 +155,42 @@ class ProductService {
             return $mainObj;
         }
     }
+
+    public function postProductToStore($req){
+        //MAIN_STORE_DOMAIN
+        $product=$req->Body(true);
+        $product->tname=HOST_NAME;
+        $product->tenant=HOST_NAME;
+        $product->itemid=null;
+        $data =Auth::CrossDomainAPICall(MAIN_STORE_DOMAIN,"/components/raha/product-handler/service/ProductToStore","POST",$product);
+        if($data->success){
+            $Transaction=$data->result;
+            $result = SOSSData::Query ("product_published", urlencode("itemid:".$Transaction->itemid.""));
+            if(count($result->result)!=0){
+                //$Transaction->itemid=$result->result[0]->itemid;
+                $result=SOSSData::Update ("product_published", $Transaction,$tenantId = null);
+                if($result->success){
+                    return $Transaction;
+                }else{
+                    return null;
+                }
+            }else{
+                $result = SOSSData::Insert ("product_published", $Transaction,$tenantId = null);
+                if($result->success){
+                    //$Transaction->itemid=$result->result->generatedId;
+                    return $Transaction;
+                }else{
+                    return null;
+                }
+            }
+            return $data->result;
+        }else{
+            return null;
+        }
+
+    }
+
+    
 }
 
 ?>

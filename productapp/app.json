@@ -15,6 +15,9 @@
         "newproduct": {
             "type":"component",
             "location":"components"
+        },"newproduct_publish": {
+            "type":"component",
+            "location":"components"
         }
     },
     "description":{
@@ -30,8 +33,10 @@
             "onLoad": ["product"],
             "routes":{
                 "partials":{
-                    "/product" : "newproduct"
+                    "/product" : "newproduct",
+                    "/publish":"newproduct_publish"
                 }
+                
             }
         }
     }

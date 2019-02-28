@@ -120,7 +120,7 @@ WEBDOCK.component().register(function(exports){
                 additems: function (items, itemCount) {
                     this.itemcount=itemCount;
                     if (items)
-                        toastr.success('Item added to cart. Go eat it now...!');
+                        toastr.success('Item added to cart');
                 }
             }
         });

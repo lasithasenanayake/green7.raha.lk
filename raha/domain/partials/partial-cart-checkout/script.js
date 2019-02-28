@@ -118,7 +118,7 @@ WEBDOCK.component().register(function(exports){
         validator = validatorInstance.newValidator (scope);
         validator.map ("profile.name",true, "You should enter your full name");
         validator.map ("profile.contactno1",true, "You should enter your contact number");
-        validator.map ("profile.email",true, "You should enter your email");
+        // validator.map ("profile.email",true, "You should enter your email");
         validator.map ("profile.address.addressline1",true, "You should enter an address");
         //validator.map ("profile.address.addressline2",true, "You should enter address line 2");
         // validator.map ("profile.address.city",true, "You should select a colombo region");

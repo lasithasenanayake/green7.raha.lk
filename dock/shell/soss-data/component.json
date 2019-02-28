@@ -18,6 +18,8 @@
         "methods" : {
             "q" : {
                 "method" : "POST"
+            },"qcrossdomain" : {
+                "method" : "POST"
             }
         }
     }    
